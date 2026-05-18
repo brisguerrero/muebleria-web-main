@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: #f4f6fb;
+  color: #1a2f5e;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* ── Catálogo ─────────────────────────────── */
+.catalogo {
+  padding: 4rem 2rem;
+}
+
+.catalogo-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.catalogo-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+  border-bottom: 2px solid #e4e8f0;
+  padding-bottom: 1.2rem;
+}
+
+.catalogo-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a2f5e;
+  letter-spacing: -0.02em;
+}
+
+.catalogo-count {
+  font-size: 0.85rem;
+  color: #9aa0b5;
+  margin-top: 4px;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── Estados ──────────────────────────────── */
+.estado-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 5rem 2rem;
+  color: #9aa0b5;
+  text-align: center;
+}
+
+.estado-error {
+  color: #e05c1a;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e4e8f0;
+  border-top-color: #1a2f5e;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Beneficios ───────────────────────────── */
+.beneficios {
+  background: #fff;
+  padding: 3rem 2rem;
+  border-top: 1px solid #eaecf4;
+  border-bottom: 1px solid #eaecf4;
+}
+
+.beneficios-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.beneficio {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.beneficio-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #eef1fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a2f5e;
+  flex-shrink: 0;
+}
+
+.beneficio h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a2f5e;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.beneficio p {
+  font-size: 0.8rem;
+  color: #6b7494;
+  line-height: 1.5;
+}
+
+/* ── CTA WhatsApp ─────────────────────────── */
+.cta-wa-section {
+  background: linear-gradient(135deg, #0d1f3f, #1a2f5e);
+  padding: 3.5rem 2rem;
+  margin-top: 4rem;
+}
+
+.cta-wa-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.cta-wa-inner h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 0.4rem;
+}
+
+.cta-wa-inner p {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.95rem;
+}
+
+.cta-wa-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25d366;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.18s, transform 0.12s;
+  font-family: inherit;
+  flex-shrink: 0;
+}
+
+.cta-wa-btn:hover {
+  background: #1db954;
+  transform: translateY(-2px);
+}
+
+/* ── Responsive ───────────────────────────── */
+@media (max-width: 1024px) {
+  .beneficios-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .catalogo {
+    padding: 2.5rem 1rem;
+  }
+
+  .catalogo-title {
+    font-size: 1.5rem;
+  }
+
+  .productos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+
+  .beneficios {
+    padding: 2rem 1rem;
+  }
+
+  .beneficios-inner {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .cta-wa-section {
+    padding: 2.5rem 1rem;
+  }
+
+  .cta-wa-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-wa-inner h2 {
+    font-size: 1.4rem;
+  }
+}
